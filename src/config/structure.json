@@ -1,0 +1,241 @@
+{
+  "levels": ["first", "second", "third", "fourth"],
+  "levelNames": {
+    "first": { "ar": "الأولى متوسط", "en": "1st Year", "fr": "1ère Année" },
+    "second": { "ar": "الثانية متوسط", "en": "2nd Year", "fr": "2ème Année" },
+    "third": { "ar": "الثالثة متوسط", "en": "3rd Year", "fr": "3ème Année" },
+    "fourth": { "ar": "الرابعة متوسط", "en": "4th Year", "fr": "4ème Année" }
+  },
+  "subjects": ["history", "geo", "pe", "civic_ed"],
+  "subjectNames": {
+    "history": { "ar": "تاريخ", "en": "History", "fr": "Histoire" },
+    "geo": { "ar": "جغرافيا", "en": "Geography", "fr": "Géographie" },
+    "pe": { "ar": "تربية بدنية", "en": "Physical Education", "fr": "EPS" },
+    "civic_ed": { "ar": "تربية مدنية", "en": "Civic Education", "fr": "Éducation Civique" }
+  },
+  "chapters": ["ch1", "ch2", "ch3"],
+  "chapterNames": {
+    "ch1": { "ar": "الفصل الأول", "en": "Chapter 1", "fr": "Trimestre 1" },
+    "ch2": { "ar": "الفصل الثاني", "en": "Chapter 2", "fr": "Trimestre 2" },
+    "ch3": { "ar": "الفصل الثالث", "en": "Chapter 3", "fr": "Trimestre 3" }
+  },
+  "sections": [
+    {
+      "key": "lessons",
+      "name": "المذكرات والدروس",
+      "nameEn": "Lessons & Notes",
+      "nameFr": "Leçons & Notes",
+      "icon": "BookOpen",
+      "order": 1,
+      "folders": [
+        {
+          "key": "lessons_root",
+          "name": "المستويات",
+          "nameEn": "Levels",
+          "nameFr": "Niveaux",
+          "generate": { "type": "levels_subfolders", "subfolders": ["lessons_docs", "lessons_notes"], "subfolderNames": [
+            { "ar": "الدروس", "en": "Lessons", "fr": "Leçons" },
+            { "ar": "المذكرات", "en": "Notes", "fr": "Notes" }
+          ], "subjects": ["history", "geo", "pe"] }
+        }
+      ]
+    },
+    {
+      "key": "teacher_docs",
+      "name": "وثائق الأستاذ",
+      "nameEn": "Teacher Documents",
+      "nameFr": "Documents du Professeur",
+      "icon": "FileText",
+      "order": 2,
+      "folders": [
+        { "key": "td_curriculum", "name": "المنهاج", "nameEn": "Curriculum", "nameFr": "Programme" },
+        { "key": "td_training_book", "name": "دفتر التكوين", "nameEn": "Training Book", "nameFr": "Carnet de Formation" },
+        { "key": "td_daily_book", "name": "الدفتر اليومي", "nameEn": "Daily Book", "nameFr": "Journal Quotidien" },
+        { "key": "td_planning", "name": "المخطط والتدرجات", "nameEn": "Planning & Progressions", "nameFr": "Planification" },
+        { "key": "td_grading", "name": "دفتر التنقيط", "nameEn": "Grading Book", "nameFr": "Carnet de Notation" },
+        { "key": "td_supervision", "name": "الوثيقة المراقبة", "nameEn": "Supervision Document", "nameFr": "Document de Supervision" }
+      ]
+    },
+    {
+      "key": "exams",
+      "name": "الفروض والاختبارات",
+      "nameEn": "Tests & Exams",
+      "nameFr": "Devoirs & Examens",
+      "icon": "ClipboardCheck",
+      "order": 3,
+      "folders": [
+        {
+          "key": "ex_diagnostic",
+          "name": "التقديم التشخيصي",
+          "nameEn": "Diagnostic Assessment",
+          "nameFr": "Évaluation Diagnostique",
+          "generate": { "type": "levels_subjects", "subjects": ["history_geo", "civic_ed"] }
+        },
+        {
+          "key": "ex_tests",
+          "name": "الفروض",
+          "nameEn": "Tests",
+          "nameFr": "Devoirs",
+          "generate": { "type": "levels_subjects_chapters", "subjects": ["history", "geo", "civic_ed", "pe"] }
+        },
+        {
+          "key": "ex_quarterly",
+          "name": "الاختبارات الفصلية",
+          "nameEn": "Quarterly Exams",
+          "nameFr": "Examens Trimestriels",
+          "generate": { "type": "levels_subjects_chapters", "subjects": ["history", "geo", "civic_ed", "pe"], "suffix": " (مع الإجابة النموذجية)", "suffixEn": " (with Answer Key)", "suffixFr": " (avec Corrigé)" }
+        },
+        {
+          "key": "ex_bem",
+          "name": "امتحانات شهادة التعليم المتوسط",
+          "nameEn": "BEM Exams",
+          "nameFr": "Examens BEM",
+          "folders": [
+            { "key": "ex_bem_hg", "name": "تاريخ وجغرافيا", "nameEn": "History & Geo", "nameFr": "Histoire-Géo" },
+            { "key": "ex_bem_pe", "name": "تربية بدنية", "nameEn": "Physical Education", "nameFr": "EPS" }
+          ]
+        },
+        {
+          "key": "ex_remediation",
+          "name": "الاختبار الاستدراكي",
+          "nameEn": "Remedial Exam",
+          "nameFr": "Examen de Rattrapage",
+          "folders": [
+            { "key": "ex_rem_hg", "name": "تاريخ وجغرافيا (مع الحلول)", "nameEn": "History & Geo (with Answers)", "nameFr": "Histoire-Géo (avec Corrigé)" },
+            { "key": "ex_rem_ce", "name": "تربية مدنية (مع الحلول)", "nameEn": "Civic Education (with Answers)", "nameFr": "Éducation Civique (avec Corrigé)" }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "training",
+      "name": "التكوين البيداغوجي",
+      "nameEn": "Pedagogical Training",
+      "nameFr": "Formation Pédagogique",
+      "icon": "GraduationCap",
+      "order": 4,
+      "folders": [
+        { "key": "tr_internal", "name": "الندوات الداخلية", "nameEn": "Internal Seminars", "nameFr": "Séminaires Internes" },
+        { "key": "tr_exam_guide", "name": "دليل بناء الاختبارات", "nameEn": "Exam Building Guide", "nameFr": "Guide d'Élaboration des Examens" },
+        { "key": "tr_mentoring", "name": "مرافقة المتربص", "nameEn": "Mentoring Trainees", "nameFr": "Accompagnement Stagiaires" },
+        { "key": "tr_main_comp", "name": "مسابقة الأستاذ الرئيسي", "nameEn": "Main Teacher Competition", "nameFr": "Concours Prof Principal" },
+        { "key": "tr_trainer_comp", "name": "مسابقة الأستاذ المكوّن", "nameEn": "Trainer Teacher Competition", "nameFr": "Concours Formateur" }
+      ]
+    },
+    {
+      "key": "books",
+      "name": "الكتب المساعدة",
+      "nameEn": "Reference Books",
+      "nameFr": "Livres de Référence",
+      "icon": "Library",
+      "order": 5,
+      "folders": [
+        { "key": "bk_history", "name": "التاريخ", "nameEn": "History", "nameFr": "Histoire", "generate": { "type": "levels" } },
+        { "key": "bk_geo", "name": "الجغرافيا", "nameEn": "Geography", "nameFr": "Géographie", "generate": { "type": "levels" } },
+        { "key": "bk_civic", "name": "التربية المدنية", "nameEn": "Civic Education", "nameFr": "Éducation Civique", "generate": { "type": "levels" } },
+        { "key": "bk_misc", "name": "متنوعة (ملخصات، مصطلحات)", "nameEn": "Miscellaneous", "nameFr": "Divers" }
+      ]
+    },
+    {
+      "key": "aids",
+      "name": "الوسائل التعليمية",
+      "nameEn": "Teaching Aids",
+      "nameFr": "Aides Pédagogiques",
+      "icon": "Map",
+      "order": 6,
+      "folders": [
+        { "key": "aid_mindmaps", "name": "الخرائط الذهنية", "nameEn": "Mind Maps", "nameFr": "Cartes Mentales" },
+        { "key": "aid_geo_maps", "name": "الخرائط الجغرافية", "nameEn": "Geographic Maps", "nameFr": "Cartes Géographiques" },
+        { "key": "aid_hist_maps", "name": "الخرائط التاريخية", "nameEn": "Historical Maps", "nameFr": "Cartes Historiques" },
+        { "key": "aid_photos", "name": "الصور", "nameEn": "Photos", "nameFr": "Photos", "generate": { "type": "levels" } },
+        {
+          "key": "aid_blank_maps",
+          "name": "الخرائط الصماء",
+          "nameEn": "Blank Maps",
+          "nameFr": "Cartes Muettes",
+          "folders": [
+            { "key": "aid_bm_africa", "name": "أفريقيا", "nameEn": "Africa", "nameFr": "Afrique" },
+            { "key": "aid_bm_asia", "name": "آسيا", "nameEn": "Asia", "nameFr": "Asie" },
+            { "key": "aid_bm_europe", "name": "أوروبا", "nameEn": "Europe", "nameFr": "Europe" },
+            { "key": "aid_bm_americas", "name": "أمريكا", "nameEn": "Americas", "nameFr": "Amériques" },
+            { "key": "aid_bm_oceania", "name": "أوقيانوسيا", "nameEn": "Oceania", "nameFr": "Océanie" }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "admin_docs",
+      "name": "الوثائق الإدارية",
+      "nameEn": "Administrative Documents",
+      "nameFr": "Documents Administratifs",
+      "icon": "Briefcase",
+      "order": 7,
+      "folders": [
+        { "key": "ad_meetings", "name": "محاضر الاجتماعات", "nameEn": "Meeting Minutes", "nameFr": "Procès-Verbaux" },
+        { "key": "ad_requests", "name": "طلبات خطية", "nameEn": "Written Requests", "nameFr": "Demandes Écrites" },
+        { "key": "ad_reports", "name": "التقارير البيداغوجية", "nameEn": "Pedagogical Reports", "nameFr": "Rapports Pédagogiques" }
+      ]
+    },
+    {
+      "key": "student_lists",
+      "name": "قوائم التلاميذ",
+      "nameEn": "Student Lists",
+      "nameFr": "Listes des Élèves",
+      "icon": "Users",
+      "order": 8,
+      "generate": { "type": "levels_classes_chapters" }
+    },
+    {
+      "key": "celebrations",
+      "name": "الاحتفالات الوطنية",
+      "nameEn": "National Celebrations",
+      "nameFr": "Célébrations Nationales",
+      "icon": "PartyPopper",
+      "order": 9,
+      "folders": [
+        { "key": "cel_anthems", "name": "الأناشيد الوطنية", "nameEn": "National Anthems", "nameFr": "Hymnes Nationaux" },
+        { "key": "cel_events", "name": "الفعاليات والمشاريع المدرسية", "nameEn": "School Events & Projects", "nameFr": "Événements Scolaires" },
+        { "key": "cel_reports", "name": "تقارير وبرامج الاحتفالات", "nameEn": "Celebration Reports", "nameFr": "Rapports de Célébrations" }
+      ]
+    },
+    {
+      "key": "av",
+      "name": "السمعي البصري",
+      "nameEn": "Audio-Visual",
+      "nameFr": "Audio-Visuel",
+      "icon": "Video",
+      "order": 10,
+      "folders": [
+        { "key": "av_tv", "name": "فيديوهات القنوات واليوتيوب", "nameEn": "TV & YouTube Videos", "nameFr": "Vidéos TV & YouTube", "generate": { "type": "levels" } },
+        { "key": "av_presentations", "name": "العروض التقديمية", "nameEn": "Presentations", "nameFr": "Présentations", "generate": { "type": "levels" } },
+        { "key": "av_ai", "name": "فيديوهات الذكاء الاصطناعي", "nameEn": "AI Videos", "nameFr": "Vidéos IA", "generate": { "type": "levels" } }
+      ]
+    },
+    {
+      "key": "certificates",
+      "name": "الشهادات التقديرية",
+      "nameEn": "Certificates",
+      "nameFr": "Certificats",
+      "icon": "Award",
+      "order": 11,
+      "folders": [
+        { "key": "cert_motivation", "name": "تحفيزية", "nameEn": "Motivational", "nameFr": "Motivation" },
+        { "key": "cert_participation", "name": "المشاركة في الأنشطة المدرسية", "nameEn": "Activity Participation", "nameFr": "Participation" },
+        { "key": "cert_bem", "name": "شهادات التعليم المتوسط", "nameEn": "BEM Certificates", "nameFr": "Certificats BEM" }
+      ]
+    },
+    {
+      "key": "misc",
+      "name": "ملفات متنوعة",
+      "nameEn": "Miscellaneous Files",
+      "nameFr": "Fichiers Divers",
+      "icon": "FolderOpen",
+      "order": 12,
+      "folders": [
+        { "key": "ms_ministerial", "name": "المناشير الوزارية", "nameEn": "Ministerial Circulars", "nameFr": "Circulaires Ministérielles" },
+        { "key": "ms_curricula", "name": "المقررات", "nameEn": "Official Curricula", "nameFr": "Programmes Officiels" },
+        { "key": "ms_daily", "name": "مذكرة اليومية", "nameEn": "Daily Memo", "nameFr": "Mémo Quotidien" }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,118 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    color-scheme: light dark;
+    --c-primary: #0ea5e9;
+    --c-primary-dark: #0369a1;
+    --c-primary-50: #f0f9ff;
+    --c-primary-100: #e0f2fe;
+    --c-primary-200: #bae6fd;
+    --c-primary-300: #7dd3fc;
+    --c-primary-400: #38bdf8;
+    --c-primary-500: #0ea5e9;
+    --c-primary-600: #0284c7;
+    --c-primary-700: #0369a1;
+    --c-primary-800: #075985;
+    --c-primary-900: #0c4a6e;
+    --c-surface: #ffffff;
+    --c-bg: #f8fafc;
+    --c-text: #1e293b;
+    --c-text-muted: #64748b;
+    --c-border: #e2e8f0;
+  }
+
+  .dark {
+    --c-surface: #1e293b;
+    --c-bg: #0f172a;
+    --c-text: #f1f5f9;
+    --c-text-muted: #94a3b8;
+    --c-border: #334155;
+  }
+
+  body {
+    @apply font-arabic antialiased;
+    -webkit-tap-highlight-color: transparent;
+  }
+  * {
+    -webkit-user-select: none;
+    user-select: none;
+  }
+  input, textarea {
+    -webkit-user-select: text;
+    user-select: text;
+  }
+}
+
+@layer components {
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-xl px-5 py-3 font-semibold transition-all active:scale-95 disabled:opacity-50 disabled:active:scale-100;
+  }
+  .btn-primary {
+    @apply btn text-white;
+    background: var(--c-primary-600);
+  }
+  .btn-primary:hover { background: var(--c-primary-700); }
+  .dark .btn-primary { background: var(--c-primary-500); }
+  .dark .btn-primary:hover { background: var(--c-primary-600); }
+
+  .btn-secondary {
+    @apply btn bg-slate-100 text-slate-700 hover:bg-slate-200 dark:bg-slate-800 dark:text-slate-200 dark:hover:bg-slate-700;
+  }
+  .btn-danger {
+    @apply btn bg-error-500 text-white hover:bg-error-600;
+  }
+  .card {
+    @apply rounded-2xl bg-white dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700/50 shadow-sm;
+  }
+  .input {
+    @apply w-full rounded-xl border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-800 px-4 py-3 text-slate-900 dark:text-slate-100 outline-none focus:ring-2 focus:border-transparent transition-all;
+    --tw-ring-color: var(--c-primary-500);
+  }
+  .label {
+    @apply block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-1.5;
+  }
+  .ripple {
+    position: relative;
+    overflow: hidden;
+  }
+  .ripple-dot {
+    position: absolute;
+    border-radius: 9999px;
+    background: currentColor;
+    opacity: 0.3;
+    transform: scale(0);
+    animation: rippleAnim 0.5s ease-out;
+    pointer-events: none;
+  }
+  @keyframes rippleAnim {
+    to { transform: scale(3); opacity: 0; }
+  }
+}
+
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { @apply bg-slate-300 dark:bg-slate-600 rounded-full; }
+
+.safe-bottom { padding-bottom: env(safe-area-inset-bottom); }
+.safe-top { padding-top: env(safe-area-inset-top); }
+
+.animate-slide-up { animation: slideUp 0.25s ease-out; }
+@keyframes slideUp {
+  from { transform: translateY(100%); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+.animate-fade-in { animation: fadeIn 0.2s ease-out; }
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.animate-scale-in { animation: scaleIn 0.2s ease-out; }
+@keyframes scaleIn {
+  from { transform: scale(0.95); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
